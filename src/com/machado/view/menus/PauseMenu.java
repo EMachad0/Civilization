@@ -47,7 +47,7 @@ public class PauseMenu extends Menu {
     public void draw() {
         super.draw();
 
-        if (isShow()) {
+        if (isVisible()) {
             view.rectMode(PConstants.CENTER);
             view.fill(0, 120, 200, 20);
             view.rect(view.width/2F, view.height/2F, 300, 300);

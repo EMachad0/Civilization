@@ -13,7 +13,7 @@ public abstract class Menu {
     public static final int btnWidth = 200;
     public static final int btnHeight = 50;
 
-    private boolean isShow = true;
+    private boolean isVisible = true;
     private String menuId;
     protected final MenuController controller;
 
@@ -39,18 +39,18 @@ public abstract class Menu {
     public void keyPressed(KeyEvent event) {}
 
     public void draw() {
-        if (isShow) {
+        if (isVisible) {
             if (background != null) view.image(background, 0, 0);
         }
     }
 
     public void show() {
-        isShow = true;
+        isVisible = true;
         buttons.forEach(b -> b.setVisible(true));
     }
 
     public void hide() {
-        isShow = false;
+        isVisible = false;
         buttons.forEach(b -> b.setVisible(false));
     }
 
@@ -62,7 +62,7 @@ public abstract class Menu {
         this.menuId = s;
     }
 
-    public boolean isShow() {
-        return isShow;
+    public boolean isVisible() {
+        return isVisible;
     }
 }

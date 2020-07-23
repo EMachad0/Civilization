@@ -43,7 +43,7 @@ public class OptionsMenu extends Menu {
     public void draw() {
         super.draw();
 
-        if (isShow()) {
+        if (isVisible()) {
             view.rectMode(PConstants.CORNERS);
             view.fill(0, 120, 200, 20);
             view.rect(30, 30, view.width-30, view.height-30);
