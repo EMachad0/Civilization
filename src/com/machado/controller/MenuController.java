@@ -1,5 +1,6 @@
 package com.machado.controller;
 
+import com.machado.view.MainLoop;
 import com.machado.view.menus.*;
 import processing.core.PApplet;
 import processing.event.KeyEvent;
@@ -11,10 +12,10 @@ public class MenuController {
 
     private String idCurr;
 
-    private final PApplet view;
+    private final MainLoop view;
     private final Map<String, Menu> menus = new TreeMap<>();
 
-    public MenuController(PApplet view) {
+    public MenuController(MainLoop view) {
         this.view = view;
 
         initMenus();

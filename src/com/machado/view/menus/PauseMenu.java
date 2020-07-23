@@ -1,17 +1,17 @@
 package com.machado.view.menus;
 
 import com.machado.controller.MenuController;
+import com.machado.view.MainLoop;
 import g4p_controls.G4P;
 import g4p_controls.GButton;
 import g4p_controls.GControlMode;
 import g4p_controls.GEvent;
-import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.event.KeyEvent;
 
 public class PauseMenu extends Menu {
 
-    public PauseMenu(PApplet view, MenuController controller) {
+    public PauseMenu(MainLoop view, MenuController controller) {
         super(view, controller);
     }
 
@@ -39,7 +39,7 @@ public class PauseMenu extends Menu {
     @Override
     public void keyPressed(KeyEvent event) {
         if (event.getKey() == 27 || event.getKey() == '\'') {
-            controller.changeMenu("GameMenu");
+            changeToGame();
         }
     }
 
@@ -55,7 +55,7 @@ public class PauseMenu extends Menu {
     }
 
     public void resumeBtn(GButton button, GEvent event) {
-        controller.changeMenu("GameMenu");
+        changeToGame();
     }
 
     public void mainMenuBtn(GButton button, GEvent event) {

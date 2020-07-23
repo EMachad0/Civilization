@@ -1,6 +1,7 @@
 package com.machado.view.menus;
 
 import com.machado.controller.MenuController;
+import com.machado.view.MainLoop;
 import g4p_controls.G4P;
 import g4p_controls.GButton;
 import g4p_controls.GControlMode;
@@ -11,7 +12,7 @@ import processing.event.KeyEvent;
 
 public class OptionsMenu extends Menu {
 
-    public OptionsMenu(PApplet view, MenuController controller) {
+    public OptionsMenu(MainLoop view, MenuController controller) {
         super(view, controller);
     }
 
