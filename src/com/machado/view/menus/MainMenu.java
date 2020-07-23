@@ -52,7 +52,7 @@ public class MainMenu extends Menu {
     }
 
     public void ContinueGameBtn(GButton button, GEvent event) {
-        if ( ((MainLoop) view).getWorld() == null)  ((MainLoop) view).newWorld();
+        if (((MainLoop) view).getWorld() == null)  ((MainLoop) view).newWorld();
         controller.goInGame();
     }
 

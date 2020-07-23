@@ -2,7 +2,6 @@ package com.machado.controller;
 
 import com.machado.view.MainLoop;
 import com.machado.view.menus.*;
-import processing.core.PApplet;
 import processing.event.KeyEvent;
 
 import java.util.Map;

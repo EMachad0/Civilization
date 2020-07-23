@@ -1,5 +1,6 @@
 package com.machado.view;
 
+import com.machado.controller.CameraController;
 import com.machado.controller.MenuController;
 import com.machado.model.World;
 import g4p_controls.G4P;
@@ -9,6 +10,8 @@ import processing.event.KeyEvent;
 public class MainLoop extends PApplet {
 
     private MenuController menuController;
+    private CameraController cameraController;
+
     private World world;
 
     public void settings() {
@@ -22,6 +25,7 @@ public class MainLoop extends PApplet {
         frameRate(60);
 
         menuController = new MenuController(this);
+        cameraController = new CameraController(this);
     }
 
     @Override
