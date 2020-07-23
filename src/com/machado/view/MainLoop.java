@@ -16,7 +16,9 @@ public class MainLoop extends PApplet {
 
     @Override
     public void draw() {
-        fill(0);
-        rect(0, 0, 100, 100);
+        menuController.draw();
+
+        line(0, height/2F, width, height/2F);
+        line(width/2F, 0, width/2F, height);
     }
 }
