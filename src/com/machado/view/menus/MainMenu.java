@@ -1,17 +1,17 @@
 package com.machado.view.menus;
 
 import com.machado.controller.MenuController;
+import com.machado.view.MainLoop;
 import g4p_controls.G4P;
 import g4p_controls.GButton;
 import g4p_controls.GControlMode;
 import g4p_controls.GEvent;
-import processing.core.PApplet;
 
 public class MainMenu extends Menu {
 
     private static final String bgpath = "./images/atlasgod.jpg";
 
-    public MainMenu(PApplet view, MenuController controller) {
+    public MainMenu(MainLoop view, MenuController controller) {
         super(view, controller);
     }
 
@@ -33,17 +33,27 @@ public class MainMenu extends Menu {
 
         G4P.setCtrlMode(GControlMode.CENTER);
 
-        GButton playBtn = new GButton(view, w/2, h/2 - btnHeight - 20, btnWidth, btnHeight, "Play");
-        playBtn.addEventHandler(this, "playBtn");
-        buttons.add(playBtn);
+        GButton newGameBtn = new GButton(view, w/2, h/2 - btnHeight - 20, btnWidth, btnHeight, "New Game");
+        newGameBtn.addEventHandler(this, "newGameBtn");
+        buttons.add(newGameBtn);
 
-        GButton optionBtn = new GButton(view, w/2, h/2, btnWidth, btnHeight, "OptionsMenu");
+        GButton ContinueGameBtn = new GButton(view, w/2, h/2, btnWidth, btnHeight, "Continue Game");
+        ContinueGameBtn.addEventHandler(this, "ContinueGameBtn");
+        buttons.add(ContinueGameBtn);
+
+        GButton optionBtn = new GButton(view, w/2, h/2 + btnHeight + 20, btnWidth, btnHeight, "OptionsMenu");
         optionBtn.addEventHandler(this, "optionBtn");
         buttons.add(optionBtn);
     }
 
-    public void playBtn(GButton button, GEvent event) {
-        controller.changeMenu("GameMenu");
+    public void newGameBtn(GButton button, GEvent event) {
+        ((MainLoop) view).newWorld();
+        controller.goInGame();
+    }
+
+    public void ContinueGameBtn(GButton button, GEvent event) {
+        if ( ((MainLoop) view).getWorld() == null)  ((MainLoop) view).newWorld();
+        controller.goInGame();
     }
 
     public void optionBtn(GButton button, GEvent event) {

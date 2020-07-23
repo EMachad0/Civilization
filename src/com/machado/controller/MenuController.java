@@ -1,5 +1,6 @@
 package com.machado.controller;
 
+import com.machado.view.MainLoop;
 import com.machado.view.menus.*;
 import processing.core.PApplet;
 import processing.event.KeyEvent;
@@ -11,10 +12,10 @@ public class MenuController {
 
     private String idCurr;
 
-    private final PApplet view;
+    private final MainLoop view;
     private final Map<String, Menu> menus = new TreeMap<>();
 
-    public MenuController(PApplet view) {
+    public MenuController(MainLoop view) {
         this.view = view;
 
         initMenus();
@@ -50,5 +51,17 @@ public class MenuController {
 
     public void keyPressed(KeyEvent event) {
         menus.get(idCurr).keyPressed(event);
+    }
+
+    public void goInGame() {
+        view.getWorld().setVisible(true);
+        view.getWorld().setPause(false);
+        changeMenu("GameMenu");
+    }
+
+    public void goOutGame(String newMenu) {
+        view.getWorld().setVisible(false);
+        view.getWorld().setPause(true);
+        changeMenu(newMenu);
     }
 }

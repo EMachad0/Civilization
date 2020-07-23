@@ -39,7 +39,7 @@ public class PauseMenu extends Menu {
     @Override
     public void keyPressed(KeyEvent event) {
         if (event.getKey() == 27 || event.getKey() == '\'') {
-            controller.changeMenu("GameMenu");
+            controller.goInGame();
         }
     }
 
@@ -55,7 +55,7 @@ public class PauseMenu extends Menu {
     }
 
     public void resumeBtn(GButton button, GEvent event) {
-        controller.changeMenu("GameMenu");
+        controller.goInGame();
     }
 
     public void mainMenuBtn(GButton button, GEvent event) {

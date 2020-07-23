@@ -42,7 +42,7 @@ public class GameMenu extends Menu {
     @Override
     public void keyPressed(KeyEvent event) {
         if (event.getKey() == 27 || event.getKey() == '\'') {
-            controller.changeMenu("PauseMenu");
+            controller.goOutGame("PauseMenu");
         }
     }
 
