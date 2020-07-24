@@ -48,6 +48,10 @@ public class MenuController {
         menus.get(idCurr).draw();
     }
 
+    public void postCamDraw() {
+        menus.get(idCurr).postCamDraw();
+    }
+
     public void keyPressed(KeyEvent event) {
         menus.get(idCurr).keyPressed(event);
     }

@@ -6,7 +6,6 @@ import g4p_controls.G4P;
 import g4p_controls.GButton;
 import g4p_controls.GControlMode;
 import g4p_controls.GEvent;
-import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.event.KeyEvent;
 

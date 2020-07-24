@@ -45,6 +45,8 @@ public abstract class Menu {
         }
     }
 
+    public void postCamDraw() {}
+
     public void show() {
         isVisible = true;
         buttons.forEach(b -> b.setVisible(true));

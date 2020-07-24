@@ -1,38 +1,34 @@
 package com.machado.model;
 
+import com.machado.controller.Camera;
 import processing.core.PApplet;
+import processing.event.KeyEvent;
 
 public class World {
-
-    private static final int SIZE = 100;
 
     private boolean isVisible = false;
     private boolean isPause = false;
 
     private final PApplet view;
-    private Tile[][] mapa;
+
+    private Camera camera;
+    private Mapa mapa;
 
     public World(PApplet view) {
         this.view = view;
-        initMapa();
+
+        initObj();
     }
 
-    private void initMapa() {
-        mapa = new Tile[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                mapa[i][j] = new Tile(view, i * Tile.SIZE, j * Tile.SIZE);
-            }
-        }
+    private void initObj() {
+        camera = new Camera(view);
+        mapa = new Mapa(view);
     }
 
     public void draw() {
         if (isVisible) {
-            for (int i = 0; i < SIZE; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    mapa[i][j].draw();
-                }
-            }
+            camera.translate();
+            mapa.draw();
         }
     }
 
@@ -46,5 +42,11 @@ public class World {
 
     public void setPause(boolean pause) {
         isPause = pause;
+    }
+
+    public void keyPressed(KeyEvent event) {
+        if (isVisible && !isPause) {
+            camera.keyPressed(event);
+        }
     }
 }
